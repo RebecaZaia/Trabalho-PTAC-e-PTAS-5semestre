@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Heart, MessageCircle, Star } from "lucide-react";
+import { Heart, MessageCircle, Star, Share2 } from "lucide-react";
 import {
   Avatar,
   AvatarFallback,
@@ -78,6 +78,7 @@ export default function PostCard() {
             <Heart size={18} />
             <MessageCircle size={18} />
             <Star size={18} />
+            <Share2 size={18} />
           </div>
 
           <Button size="sm" className="bg-green-600 hover:bg-green-700">

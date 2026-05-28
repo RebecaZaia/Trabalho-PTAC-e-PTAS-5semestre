@@ -20,25 +20,15 @@ export type postsModel = runtime.Types.Result.DefaultSelection<Prisma.$postsPayl
 
 export type AggregatePosts = {
   _count: PostsCountAggregateOutputType | null
-  _avg: PostsAvgAggregateOutputType | null
-  _sum: PostsSumAggregateOutputType | null
   _min: PostsMinAggregateOutputType | null
   _max: PostsMaxAggregateOutputType | null
-}
-
-export type PostsAvgAggregateOutputType = {
-  id_user: number | null
-}
-
-export type PostsSumAggregateOutputType = {
-  id_user: number | null
 }
 
 export type PostsMinAggregateOutputType = {
   id_post: string | null
   conteudo: string | null
   date_hora: Date | null
-  id_user: number | null
+  id_user: string | null
   id_proj: string | null
 }
 
@@ -46,7 +36,7 @@ export type PostsMaxAggregateOutputType = {
   id_post: string | null
   conteudo: string | null
   date_hora: Date | null
-  id_user: number | null
+  id_user: string | null
   id_proj: string | null
 }
 
@@ -59,14 +49,6 @@ export type PostsCountAggregateOutputType = {
   _all: number
 }
 
-
-export type PostsAvgAggregateInputType = {
-  id_user?: true
-}
-
-export type PostsSumAggregateInputType = {
-  id_user?: true
-}
 
 export type PostsMinAggregateInputType = {
   id_post?: true
@@ -131,18 +113,6 @@ export type PostsAggregateArgs<ExtArgs extends runtime.Types.Extensions.Internal
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: PostsAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: PostsSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: PostsMinAggregateInputType
@@ -173,8 +143,6 @@ export type postsGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
   take?: number
   skip?: number
   _count?: PostsCountAggregateInputType | true
-  _avg?: PostsAvgAggregateInputType
-  _sum?: PostsSumAggregateInputType
   _min?: PostsMinAggregateInputType
   _max?: PostsMaxAggregateInputType
 }
@@ -183,11 +151,9 @@ export type PostsGroupByOutputType = {
   id_post: string
   conteudo: string
   date_hora: Date
-  id_user: number
+  id_user: string
   id_proj: string
   _count: PostsCountAggregateOutputType | null
-  _avg: PostsAvgAggregateOutputType | null
-  _sum: PostsSumAggregateOutputType | null
   _min: PostsMinAggregateOutputType | null
   _max: PostsMaxAggregateOutputType | null
 }
@@ -214,7 +180,7 @@ export type postsWhereInput = {
   id_post?: Prisma.StringFilter<"posts"> | string
   conteudo?: Prisma.StringFilter<"posts"> | string
   date_hora?: Prisma.DateTimeFilter<"posts"> | Date | string
-  id_user?: Prisma.IntFilter<"posts"> | number
+  id_user?: Prisma.StringFilter<"posts"> | string
   id_proj?: Prisma.StringFilter<"posts"> | string
   usuario?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   projeto?: Prisma.XOR<Prisma.ProjetosScalarRelationFilter, Prisma.projetosWhereInput>
@@ -241,7 +207,7 @@ export type postsWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.postsWhereInput | Prisma.postsWhereInput[]
   conteudo?: Prisma.StringFilter<"posts"> | string
   date_hora?: Prisma.DateTimeFilter<"posts"> | Date | string
-  id_user?: Prisma.IntFilter<"posts"> | number
+  id_user?: Prisma.StringFilter<"posts"> | string
   id_proj?: Prisma.StringFilter<"posts"> | string
   usuario?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   projeto?: Prisma.XOR<Prisma.ProjetosScalarRelationFilter, Prisma.projetosWhereInput>
@@ -256,10 +222,8 @@ export type postsOrderByWithAggregationInput = {
   id_user?: Prisma.SortOrder
   id_proj?: Prisma.SortOrder
   _count?: Prisma.postsCountOrderByAggregateInput
-  _avg?: Prisma.postsAvgOrderByAggregateInput
   _max?: Prisma.postsMaxOrderByAggregateInput
   _min?: Prisma.postsMinOrderByAggregateInput
-  _sum?: Prisma.postsSumOrderByAggregateInput
 }
 
 export type postsScalarWhereWithAggregatesInput = {
@@ -269,7 +233,7 @@ export type postsScalarWhereWithAggregatesInput = {
   id_post?: Prisma.StringWithAggregatesFilter<"posts"> | string
   conteudo?: Prisma.StringWithAggregatesFilter<"posts"> | string
   date_hora?: Prisma.DateTimeWithAggregatesFilter<"posts"> | Date | string
-  id_user?: Prisma.IntWithAggregatesFilter<"posts"> | number
+  id_user?: Prisma.StringWithAggregatesFilter<"posts"> | string
   id_proj?: Prisma.StringWithAggregatesFilter<"posts"> | string
 }
 
@@ -287,7 +251,7 @@ export type postsUncheckedCreateInput = {
   id_post?: string
   conteudo: string
   date_hora: Date | string
-  id_user: number
+  id_user: string
   id_proj: string
   comentarios?: Prisma.comentariosUncheckedCreateNestedManyWithoutPostInput
   curtidas?: Prisma.curtidasUncheckedCreateNestedManyWithoutPostInput
@@ -307,7 +271,7 @@ export type postsUncheckedUpdateInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   id_proj?: Prisma.StringFieldUpdateOperationsInput | string
   comentarios?: Prisma.comentariosUncheckedUpdateManyWithoutPostNestedInput
   curtidas?: Prisma.curtidasUncheckedUpdateManyWithoutPostNestedInput
@@ -317,7 +281,7 @@ export type postsCreateManyInput = {
   id_post?: string
   conteudo: string
   date_hora: Date | string
-  id_user: number
+  id_user: string
   id_proj: string
 }
 
@@ -331,7 +295,7 @@ export type postsUncheckedUpdateManyInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   id_proj?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -353,10 +317,6 @@ export type postsCountOrderByAggregateInput = {
   id_proj?: Prisma.SortOrder
 }
 
-export type postsAvgOrderByAggregateInput = {
-  id_user?: Prisma.SortOrder
-}
-
 export type postsMaxOrderByAggregateInput = {
   id_post?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
@@ -371,10 +331,6 @@ export type postsMinOrderByAggregateInput = {
   date_hora?: Prisma.SortOrder
   id_user?: Prisma.SortOrder
   id_proj?: Prisma.SortOrder
-}
-
-export type postsSumOrderByAggregateInput = {
-  id_user?: Prisma.SortOrder
 }
 
 export type PostsScalarRelationFilter = {
@@ -545,7 +501,7 @@ export type postsScalarWhereInput = {
   id_post?: Prisma.StringFilter<"posts"> | string
   conteudo?: Prisma.StringFilter<"posts"> | string
   date_hora?: Prisma.DateTimeFilter<"posts"> | Date | string
-  id_user?: Prisma.IntFilter<"posts"> | number
+  id_user?: Prisma.StringFilter<"posts"> | string
   id_proj?: Prisma.StringFilter<"posts"> | string
 }
 
@@ -562,7 +518,7 @@ export type postsUncheckedCreateWithoutProjetoInput = {
   id_post?: string
   conteudo: string
   date_hora: Date | string
-  id_user: number
+  id_user: string
   comentarios?: Prisma.comentariosUncheckedCreateNestedManyWithoutPostInput
   curtidas?: Prisma.curtidasUncheckedCreateNestedManyWithoutPostInput
 }
@@ -606,7 +562,7 @@ export type postsUncheckedCreateWithoutComentariosInput = {
   id_post?: string
   conteudo: string
   date_hora: Date | string
-  id_user: number
+  id_user: string
   id_proj: string
   curtidas?: Prisma.curtidasUncheckedCreateNestedManyWithoutPostInput
 }
@@ -640,7 +596,7 @@ export type postsUncheckedUpdateWithoutComentariosInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   id_proj?: Prisma.StringFieldUpdateOperationsInput | string
   curtidas?: Prisma.curtidasUncheckedUpdateManyWithoutPostNestedInput
 }
@@ -658,7 +614,7 @@ export type postsUncheckedCreateWithoutCurtidasInput = {
   id_post?: string
   conteudo: string
   date_hora: Date | string
-  id_user: number
+  id_user: string
   id_proj: string
   comentarios?: Prisma.comentariosUncheckedCreateNestedManyWithoutPostInput
 }
@@ -692,7 +648,7 @@ export type postsUncheckedUpdateWithoutCurtidasInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   id_proj?: Prisma.StringFieldUpdateOperationsInput | string
   comentarios?: Prisma.comentariosUncheckedUpdateManyWithoutPostNestedInput
 }
@@ -733,7 +689,7 @@ export type postsCreateManyProjetoInput = {
   id_post?: string
   conteudo: string
   date_hora: Date | string
-  id_user: number
+  id_user: string
 }
 
 export type postsUpdateWithoutProjetoInput = {
@@ -749,7 +705,7 @@ export type postsUncheckedUpdateWithoutProjetoInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   comentarios?: Prisma.comentariosUncheckedUpdateManyWithoutPostNestedInput
   curtidas?: Prisma.curtidasUncheckedUpdateManyWithoutPostNestedInput
 }
@@ -758,7 +714,7 @@ export type postsUncheckedUpdateManyWithoutProjetoInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -871,7 +827,7 @@ export type $postsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     id_post: string
     conteudo: string
     date_hora: Date
-    id_user: number
+    id_user: string
     id_proj: string
   }, ExtArgs["result"]["posts"]>
   composites: {}
@@ -1303,7 +1259,7 @@ export interface postsFieldRefs {
   readonly id_post: Prisma.FieldRef<"posts", 'String'>
   readonly conteudo: Prisma.FieldRef<"posts", 'String'>
   readonly date_hora: Prisma.FieldRef<"posts", 'DateTime'>
-  readonly id_user: Prisma.FieldRef<"posts", 'Int'>
+  readonly id_user: Prisma.FieldRef<"posts", 'String'>
   readonly id_proj: Prisma.FieldRef<"posts", 'String'>
 }
     

@@ -20,30 +20,20 @@ export type comentariosModel = runtime.Types.Result.DefaultSelection<Prisma.$com
 
 export type AggregateComentarios = {
   _count: ComentariosCountAggregateOutputType | null
-  _avg: ComentariosAvgAggregateOutputType | null
-  _sum: ComentariosSumAggregateOutputType | null
   _min: ComentariosMinAggregateOutputType | null
   _max: ComentariosMaxAggregateOutputType | null
 }
 
-export type ComentariosAvgAggregateOutputType = {
-  id_user: number | null
-}
-
-export type ComentariosSumAggregateOutputType = {
-  id_user: number | null
-}
-
 export type ComentariosMinAggregateOutputType = {
   id_post: string | null
-  id_user: number | null
+  id_user: string | null
   date_hora: Date | null
   comentario: string | null
 }
 
 export type ComentariosMaxAggregateOutputType = {
   id_post: string | null
-  id_user: number | null
+  id_user: string | null
   date_hora: Date | null
   comentario: string | null
 }
@@ -56,14 +46,6 @@ export type ComentariosCountAggregateOutputType = {
   _all: number
 }
 
-
-export type ComentariosAvgAggregateInputType = {
-  id_user?: true
-}
-
-export type ComentariosSumAggregateInputType = {
-  id_user?: true
-}
 
 export type ComentariosMinAggregateInputType = {
   id_post?: true
@@ -125,18 +107,6 @@ export type ComentariosAggregateArgs<ExtArgs extends runtime.Types.Extensions.In
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: ComentariosAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: ComentariosSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: ComentariosMinAggregateInputType
@@ -167,20 +137,16 @@ export type comentariosGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   _count?: ComentariosCountAggregateInputType | true
-  _avg?: ComentariosAvgAggregateInputType
-  _sum?: ComentariosSumAggregateInputType
   _min?: ComentariosMinAggregateInputType
   _max?: ComentariosMaxAggregateInputType
 }
 
 export type ComentariosGroupByOutputType = {
   id_post: string
-  id_user: number
+  id_user: string
   date_hora: Date
   comentario: string
   _count: ComentariosCountAggregateOutputType | null
-  _avg: ComentariosAvgAggregateOutputType | null
-  _sum: ComentariosSumAggregateOutputType | null
   _min: ComentariosMinAggregateOutputType | null
   _max: ComentariosMaxAggregateOutputType | null
 }
@@ -205,7 +171,7 @@ export type comentariosWhereInput = {
   OR?: Prisma.comentariosWhereInput[]
   NOT?: Prisma.comentariosWhereInput | Prisma.comentariosWhereInput[]
   id_post?: Prisma.StringFilter<"comentarios"> | string
-  id_user?: Prisma.IntFilter<"comentarios"> | number
+  id_user?: Prisma.StringFilter<"comentarios"> | string
   date_hora?: Prisma.DateTimeFilter<"comentarios"> | Date | string
   comentario?: Prisma.StringFilter<"comentarios"> | string
   post?: Prisma.XOR<Prisma.PostsScalarRelationFilter, Prisma.postsWhereInput>
@@ -227,7 +193,7 @@ export type comentariosWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.comentariosWhereInput[]
   NOT?: Prisma.comentariosWhereInput | Prisma.comentariosWhereInput[]
   id_post?: Prisma.StringFilter<"comentarios"> | string
-  id_user?: Prisma.IntFilter<"comentarios"> | number
+  id_user?: Prisma.StringFilter<"comentarios"> | string
   date_hora?: Prisma.DateTimeFilter<"comentarios"> | Date | string
   comentario?: Prisma.StringFilter<"comentarios"> | string
   post?: Prisma.XOR<Prisma.PostsScalarRelationFilter, Prisma.postsWhereInput>
@@ -240,10 +206,8 @@ export type comentariosOrderByWithAggregationInput = {
   date_hora?: Prisma.SortOrder
   comentario?: Prisma.SortOrder
   _count?: Prisma.comentariosCountOrderByAggregateInput
-  _avg?: Prisma.comentariosAvgOrderByAggregateInput
   _max?: Prisma.comentariosMaxOrderByAggregateInput
   _min?: Prisma.comentariosMinOrderByAggregateInput
-  _sum?: Prisma.comentariosSumOrderByAggregateInput
 }
 
 export type comentariosScalarWhereWithAggregatesInput = {
@@ -251,7 +215,7 @@ export type comentariosScalarWhereWithAggregatesInput = {
   OR?: Prisma.comentariosScalarWhereWithAggregatesInput[]
   NOT?: Prisma.comentariosScalarWhereWithAggregatesInput | Prisma.comentariosScalarWhereWithAggregatesInput[]
   id_post?: Prisma.StringWithAggregatesFilter<"comentarios"> | string
-  id_user?: Prisma.IntWithAggregatesFilter<"comentarios"> | number
+  id_user?: Prisma.StringWithAggregatesFilter<"comentarios"> | string
   date_hora?: Prisma.DateTimeWithAggregatesFilter<"comentarios"> | Date | string
   comentario?: Prisma.StringWithAggregatesFilter<"comentarios"> | string
 }
@@ -265,7 +229,7 @@ export type comentariosCreateInput = {
 
 export type comentariosUncheckedCreateInput = {
   id_post: string
-  id_user: number
+  id_user: string
   date_hora: Date | string
   comentario: string
 }
@@ -279,14 +243,14 @@ export type comentariosUpdateInput = {
 
 export type comentariosUncheckedUpdateInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   comentario?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type comentariosCreateManyInput = {
   id_post: string
-  id_user: number
+  id_user: string
   date_hora: Date | string
   comentario: string
 }
@@ -298,7 +262,7 @@ export type comentariosUpdateManyMutationInput = {
 
 export type comentariosUncheckedUpdateManyInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   comentario?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -315,7 +279,7 @@ export type comentariosOrderByRelationAggregateInput = {
 
 export type comentariosId_postId_userDate_horaCompoundUniqueInput = {
   id_post: string
-  id_user: number
+  id_user: string
   date_hora: Date | string
 }
 
@@ -324,10 +288,6 @@ export type comentariosCountOrderByAggregateInput = {
   id_user?: Prisma.SortOrder
   date_hora?: Prisma.SortOrder
   comentario?: Prisma.SortOrder
-}
-
-export type comentariosAvgOrderByAggregateInput = {
-  id_user?: Prisma.SortOrder
 }
 
 export type comentariosMaxOrderByAggregateInput = {
@@ -342,10 +302,6 @@ export type comentariosMinOrderByAggregateInput = {
   id_user?: Prisma.SortOrder
   date_hora?: Prisma.SortOrder
   comentario?: Prisma.SortOrder
-}
-
-export type comentariosSumOrderByAggregateInput = {
-  id_user?: Prisma.SortOrder
 }
 
 export type comentariosCreateNestedManyWithoutUsuarioInput = {
@@ -475,7 +431,7 @@ export type comentariosScalarWhereInput = {
   OR?: Prisma.comentariosScalarWhereInput[]
   NOT?: Prisma.comentariosScalarWhereInput | Prisma.comentariosScalarWhereInput[]
   id_post?: Prisma.StringFilter<"comentarios"> | string
-  id_user?: Prisma.IntFilter<"comentarios"> | number
+  id_user?: Prisma.StringFilter<"comentarios"> | string
   date_hora?: Prisma.DateTimeFilter<"comentarios"> | Date | string
   comentario?: Prisma.StringFilter<"comentarios"> | string
 }
@@ -487,7 +443,7 @@ export type comentariosCreateWithoutPostInput = {
 }
 
 export type comentariosUncheckedCreateWithoutPostInput = {
-  id_user: number
+  id_user: string
   date_hora: Date | string
   comentario: string
 }
@@ -543,7 +499,7 @@ export type comentariosUncheckedUpdateManyWithoutUsuarioInput = {
 }
 
 export type comentariosCreateManyPostInput = {
-  id_user: number
+  id_user: string
   date_hora: Date | string
   comentario: string
 }
@@ -555,13 +511,13 @@ export type comentariosUpdateWithoutPostInput = {
 }
 
 export type comentariosUncheckedUpdateWithoutPostInput = {
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   comentario?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type comentariosUncheckedUpdateManyWithoutPostInput = {
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   comentario?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -624,7 +580,7 @@ export type $comentariosPayload<ExtArgs extends runtime.Types.Extensions.Interna
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_post: string
-    id_user: number
+    id_user: string
     date_hora: Date
     comentario: string
   }, ExtArgs["result"]["comentarios"]>
@@ -1053,7 +1009,7 @@ export interface Prisma__comentariosClient<T, Null = never, ExtArgs extends runt
  */
 export interface comentariosFieldRefs {
   readonly id_post: Prisma.FieldRef<"comentarios", 'String'>
-  readonly id_user: Prisma.FieldRef<"comentarios", 'Int'>
+  readonly id_user: Prisma.FieldRef<"comentarios", 'String'>
   readonly date_hora: Prisma.FieldRef<"comentarios", 'DateTime'>
   readonly comentario: Prisma.FieldRef<"comentarios", 'String'>
 }

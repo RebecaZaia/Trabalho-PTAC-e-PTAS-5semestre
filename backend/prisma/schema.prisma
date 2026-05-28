@@ -9,13 +9,13 @@ datasource db {
 
 
 model User {
-  id_user     Int     @id @default(autoincrement())
+  id            String @id @default(cuid())
   name          String?
-  cpf           String
+  cpf           String?
   image         String?
   email         String
   emailVerified Boolean   @default(false)
-  password      String
+  password      String?
 
   posts       posts[]
   comentarios comentarios[]
@@ -47,10 +47,10 @@ model posts {
   conteudo  String
   date_hora DateTime
 
-  id_user Int
+  id_user String
   id_proj String
 
-  usuario User @relation(fields: [id_user], references: [id_user])
+  usuario User @relation(fields: [id_user], references: [id])
   projeto projetos @relation(fields: [id_proj], references: [id_proj])
 
   comentarios comentarios[]
@@ -59,23 +59,23 @@ model posts {
 
 model comentarios {
   id_post    String
-  id_user    Int
+  id_user    String
   date_hora  DateTime
   comentario String
 
   post    posts    @relation(fields: [id_post], references: [id_post])
-  usuario User @relation(fields: [id_user], references: [id_user])
+  usuario User @relation(fields: [id_user], references: [id])
 
   @@id([id_post, id_user, date_hora])
 }
 
 model curtidas {
   id_post String
-  id_user Int
+  id_user String
   id_proj String
 
   post    posts    @relation(fields: [id_post], references: [id_post])
-  usuario User @relation(fields: [id_user], references: [id_user])
+  usuario User @relation(fields: [id_user], references: [id])
   projeto projetos @relation(fields: [id_proj], references: [id_proj])
 
   @@id([id_post, id_user])
@@ -88,8 +88,8 @@ model Session {
   updatedAt DateTime @updatedAt
   ipAddress String?
   userAgent String?
-  userId    Int
-  user      User     @relation(fields: [userId], references: [id_user], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([token])
   @@index([userId])
@@ -100,8 +100,8 @@ model Account {
   id                    String    @id
   accountId             String
   providerId            String
-  userId                Int
-  user                  User      @relation(fields: [userId], references: [id_user], onDelete: Cascade)
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   accessToken           String?
   refreshToken          String?
   idToken               String?

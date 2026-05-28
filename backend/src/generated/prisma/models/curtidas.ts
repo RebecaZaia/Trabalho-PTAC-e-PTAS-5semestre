@@ -20,29 +20,19 @@ export type curtidasModel = runtime.Types.Result.DefaultSelection<Prisma.$curtid
 
 export type AggregateCurtidas = {
   _count: CurtidasCountAggregateOutputType | null
-  _avg: CurtidasAvgAggregateOutputType | null
-  _sum: CurtidasSumAggregateOutputType | null
   _min: CurtidasMinAggregateOutputType | null
   _max: CurtidasMaxAggregateOutputType | null
 }
 
-export type CurtidasAvgAggregateOutputType = {
-  id_user: number | null
-}
-
-export type CurtidasSumAggregateOutputType = {
-  id_user: number | null
-}
-
 export type CurtidasMinAggregateOutputType = {
   id_post: string | null
-  id_user: number | null
+  id_user: string | null
   id_proj: string | null
 }
 
 export type CurtidasMaxAggregateOutputType = {
   id_post: string | null
-  id_user: number | null
+  id_user: string | null
   id_proj: string | null
 }
 
@@ -53,14 +43,6 @@ export type CurtidasCountAggregateOutputType = {
   _all: number
 }
 
-
-export type CurtidasAvgAggregateInputType = {
-  id_user?: true
-}
-
-export type CurtidasSumAggregateInputType = {
-  id_user?: true
-}
 
 export type CurtidasMinAggregateInputType = {
   id_post?: true
@@ -119,18 +101,6 @@ export type CurtidasAggregateArgs<ExtArgs extends runtime.Types.Extensions.Inter
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: CurtidasAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: CurtidasSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: CurtidasMinAggregateInputType
@@ -161,19 +131,15 @@ export type curtidasGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   _count?: CurtidasCountAggregateInputType | true
-  _avg?: CurtidasAvgAggregateInputType
-  _sum?: CurtidasSumAggregateInputType
   _min?: CurtidasMinAggregateInputType
   _max?: CurtidasMaxAggregateInputType
 }
 
 export type CurtidasGroupByOutputType = {
   id_post: string
-  id_user: number
+  id_user: string
   id_proj: string
   _count: CurtidasCountAggregateOutputType | null
-  _avg: CurtidasAvgAggregateOutputType | null
-  _sum: CurtidasSumAggregateOutputType | null
   _min: CurtidasMinAggregateOutputType | null
   _max: CurtidasMaxAggregateOutputType | null
 }
@@ -198,7 +164,7 @@ export type curtidasWhereInput = {
   OR?: Prisma.curtidasWhereInput[]
   NOT?: Prisma.curtidasWhereInput | Prisma.curtidasWhereInput[]
   id_post?: Prisma.StringFilter<"curtidas"> | string
-  id_user?: Prisma.IntFilter<"curtidas"> | number
+  id_user?: Prisma.StringFilter<"curtidas"> | string
   id_proj?: Prisma.StringFilter<"curtidas"> | string
   post?: Prisma.XOR<Prisma.PostsScalarRelationFilter, Prisma.postsWhereInput>
   usuario?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -220,7 +186,7 @@ export type curtidasWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.curtidasWhereInput[]
   NOT?: Prisma.curtidasWhereInput | Prisma.curtidasWhereInput[]
   id_post?: Prisma.StringFilter<"curtidas"> | string
-  id_user?: Prisma.IntFilter<"curtidas"> | number
+  id_user?: Prisma.StringFilter<"curtidas"> | string
   id_proj?: Prisma.StringFilter<"curtidas"> | string
   post?: Prisma.XOR<Prisma.PostsScalarRelationFilter, Prisma.postsWhereInput>
   usuario?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -232,10 +198,8 @@ export type curtidasOrderByWithAggregationInput = {
   id_user?: Prisma.SortOrder
   id_proj?: Prisma.SortOrder
   _count?: Prisma.curtidasCountOrderByAggregateInput
-  _avg?: Prisma.curtidasAvgOrderByAggregateInput
   _max?: Prisma.curtidasMaxOrderByAggregateInput
   _min?: Prisma.curtidasMinOrderByAggregateInput
-  _sum?: Prisma.curtidasSumOrderByAggregateInput
 }
 
 export type curtidasScalarWhereWithAggregatesInput = {
@@ -243,7 +207,7 @@ export type curtidasScalarWhereWithAggregatesInput = {
   OR?: Prisma.curtidasScalarWhereWithAggregatesInput[]
   NOT?: Prisma.curtidasScalarWhereWithAggregatesInput | Prisma.curtidasScalarWhereWithAggregatesInput[]
   id_post?: Prisma.StringWithAggregatesFilter<"curtidas"> | string
-  id_user?: Prisma.IntWithAggregatesFilter<"curtidas"> | number
+  id_user?: Prisma.StringWithAggregatesFilter<"curtidas"> | string
   id_proj?: Prisma.StringWithAggregatesFilter<"curtidas"> | string
 }
 
@@ -255,7 +219,7 @@ export type curtidasCreateInput = {
 
 export type curtidasUncheckedCreateInput = {
   id_post: string
-  id_user: number
+  id_user: string
   id_proj: string
 }
 
@@ -267,13 +231,13 @@ export type curtidasUpdateInput = {
 
 export type curtidasUncheckedUpdateInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   id_proj?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type curtidasCreateManyInput = {
   id_post: string
-  id_user: number
+  id_user: string
   id_proj: string
 }
 
@@ -283,7 +247,7 @@ export type curtidasUpdateManyMutationInput = {
 
 export type curtidasUncheckedUpdateManyInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   id_proj?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -299,17 +263,13 @@ export type curtidasOrderByRelationAggregateInput = {
 
 export type curtidasId_postId_userCompoundUniqueInput = {
   id_post: string
-  id_user: number
+  id_user: string
 }
 
 export type curtidasCountOrderByAggregateInput = {
   id_post?: Prisma.SortOrder
   id_user?: Prisma.SortOrder
   id_proj?: Prisma.SortOrder
-}
-
-export type curtidasAvgOrderByAggregateInput = {
-  id_user?: Prisma.SortOrder
 }
 
 export type curtidasMaxOrderByAggregateInput = {
@@ -322,10 +282,6 @@ export type curtidasMinOrderByAggregateInput = {
   id_post?: Prisma.SortOrder
   id_user?: Prisma.SortOrder
   id_proj?: Prisma.SortOrder
-}
-
-export type curtidasSumOrderByAggregateInput = {
-  id_user?: Prisma.SortOrder
 }
 
 export type curtidasCreateNestedManyWithoutUsuarioInput = {
@@ -495,7 +451,7 @@ export type curtidasScalarWhereInput = {
   OR?: Prisma.curtidasScalarWhereInput[]
   NOT?: Prisma.curtidasScalarWhereInput | Prisma.curtidasScalarWhereInput[]
   id_post?: Prisma.StringFilter<"curtidas"> | string
-  id_user?: Prisma.IntFilter<"curtidas"> | number
+  id_user?: Prisma.StringFilter<"curtidas"> | string
   id_proj?: Prisma.StringFilter<"curtidas"> | string
 }
 
@@ -506,7 +462,7 @@ export type curtidasCreateWithoutProjetoInput = {
 
 export type curtidasUncheckedCreateWithoutProjetoInput = {
   id_post: string
-  id_user: number
+  id_user: string
 }
 
 export type curtidasCreateOrConnectWithoutProjetoInput = {
@@ -541,7 +497,7 @@ export type curtidasCreateWithoutPostInput = {
 }
 
 export type curtidasUncheckedCreateWithoutPostInput = {
-  id_user: number
+  id_user: string
   id_proj: string
 }
 
@@ -593,7 +549,7 @@ export type curtidasUncheckedUpdateManyWithoutUsuarioInput = {
 
 export type curtidasCreateManyProjetoInput = {
   id_post: string
-  id_user: number
+  id_user: string
 }
 
 export type curtidasUpdateWithoutProjetoInput = {
@@ -603,16 +559,16 @@ export type curtidasUpdateWithoutProjetoInput = {
 
 export type curtidasUncheckedUpdateWithoutProjetoInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type curtidasUncheckedUpdateManyWithoutProjetoInput = {
   id_post?: Prisma.StringFieldUpdateOperationsInput | string
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type curtidasCreateManyPostInput = {
-  id_user: number
+  id_user: string
   id_proj: string
 }
 
@@ -622,12 +578,12 @@ export type curtidasUpdateWithoutPostInput = {
 }
 
 export type curtidasUncheckedUpdateWithoutPostInput = {
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   id_proj?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type curtidasUncheckedUpdateManyWithoutPostInput = {
-  id_user?: Prisma.IntFieldUpdateOperationsInput | number
+  id_user?: Prisma.StringFieldUpdateOperationsInput | string
   id_proj?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -692,7 +648,7 @@ export type $curtidasPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id_post: string
-    id_user: number
+    id_user: string
     id_proj: string
   }, ExtArgs["result"]["curtidas"]>
   composites: {}
@@ -1121,7 +1077,7 @@ export interface Prisma__curtidasClient<T, Null = never, ExtArgs extends runtime
  */
 export interface curtidasFieldRefs {
   readonly id_post: Prisma.FieldRef<"curtidas", 'String'>
-  readonly id_user: Prisma.FieldRef<"curtidas", 'Int'>
+  readonly id_user: Prisma.FieldRef<"curtidas", 'String'>
   readonly id_proj: Prisma.FieldRef<"curtidas", 'String'>
 }
     

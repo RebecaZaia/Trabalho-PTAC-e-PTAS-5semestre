@@ -4,8 +4,16 @@ import { ButtonGroup } from "@/components/ui/button-group"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function Header() {
+  /*const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  const handleToggleTheme = () => {
+    setTheme(isDark ? "light" : "dark");
+  };*/
   return (
     <header className="bg-green-500 flex items-center justify-between px-6 py-3">
 
@@ -40,6 +48,17 @@ export default function Header() {
             Entrar
           </a>
         </Button>
+        {/*Button
+            variant="outline"
+            size="icon"
+            className="relative"
+            onClick={handleToggleTheme}
+            aria-label="Alternar tema"
+          >
+          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all duration-300 ease-out dark:scale-0 dark:-rotate-90" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all duration-300 ease-out dark:scale-100 dark:rotate-0" />
+          <span className="sr-only">Toggle theme</span>
+        </Button>*/}
       </div>
     </header>
   );

@@ -136,6 +136,7 @@ export type CurtidasScalarFieldEnum = (typeof CurtidasScalarFieldEnum)[keyof typ
 
 export const SessionScalarFieldEnum = {
   id: 'id',
+  sessionToken: 'sessionToken',
   expiresAt: 'expiresAt',
   token: 'token',
   createdAt: 'createdAt',

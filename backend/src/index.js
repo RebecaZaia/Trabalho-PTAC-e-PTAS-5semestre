@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { auth } from "./lib/auth.js";
 import { toNodeHandler } from "better-auth/node";
+import { requireAuth } from "./middleware/auth.js";
 
 dotenv.config();
 

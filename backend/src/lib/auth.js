@@ -3,6 +3,7 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma } from "./prisma.js";
 
 export const auth = betterAuth({
+  trustedOrigins: ["http://localhost:3000"],
   // Adapter para o banco de dados
   database: prismaAdapter(prisma, {
     provider: "postgresql", // ou "mysql", "sqlite", etc.
@@ -21,6 +22,7 @@ export const auth = betterAuth({
   session: {
     expiresIn: 60 * 60 * 24 * 7, // 7 dias
     updateAge: 60 * 60 * 24, // 1 dia
+    deferSessionRefresh: true,
     cookieCache: {
       enabled: true,
       maxAge: 5 * 60, // 5 minutos

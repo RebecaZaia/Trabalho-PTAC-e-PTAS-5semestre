@@ -4,23 +4,20 @@ import { auth } from "./lib/auth.js";
 import { toNodeHandler } from "better-auth/node";
 import { requireAuth } from "./middleware/auth.js";
 import { prisma } from "./lib/prisma.js";
+import cors from "cors";
 
 dotenv.config();
+
+app.use(cors({
+  origin: "http://localhost:3000", // endereço do frontend
+  credentials: true,              // permite envio de cookies de sessão
+}));
 
 const app = express();
 const PORT = process.env.PORT || 5500;
 
 // Middleware
 app.use(express.json());
-
-import cors from "cors";
-
-// ... (após dotenv.config())
-
-app.use(cors({
-  origin: "http://localhost:3000", // endereço do frontend
-  credentials: true,              // permite envio de cookies de sessão
-}));
 
 // Rotas de autenticação do Better Auth
 // Isso cria todas as rotas automaticamente!

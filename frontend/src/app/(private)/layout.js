@@ -1,8 +1,15 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "../globals.css";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { AppSidebar } from "@/components/app-sidebar";
+import { Separator } from "@/components/ui/separator";
 /*import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import {
@@ -13,13 +20,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
-import { Separator } from "@/components/ui/separator";*/
+*/
 
 const inter = Inter({
   variable: "--font-sans",
@@ -60,12 +61,27 @@ export default function RootLayout({ children }) {
           >
           <TooltipProvider>
             <div className="max-w-full m-auto">
-            {children}
-              
+              <SidebarProvider>
+                <AppSidebar />
+                <SidebarInset>
+                  <header className="flex h-16 shrink-0 items-center gap-2">
+                    <div className="flex items-center gap-2 px-4">
+                      <SidebarTrigger className="-ml-1" />
+                      <Separator
+                        orientation="vertical"
+                        className="mr-2 data-[orientation=vertical]:h-4"
+                      />
+                    </div>
+                  </header>
+                  <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                    {children}
+                  </div>
+                </SidebarInset>
+              </SidebarProvider>
             </div>
           </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
   );
-}
+}          

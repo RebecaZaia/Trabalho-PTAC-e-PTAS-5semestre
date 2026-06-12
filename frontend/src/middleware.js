@@ -31,7 +31,6 @@ export async function middleware(request) {
 
   return NextResponse.next();
 }
-
 // Define em quais rotas o middleware roda
 export const config = {
   matcher: ["/dashboard/:path*", "/login", "/cadastrar"],

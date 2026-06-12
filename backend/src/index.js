@@ -8,13 +8,13 @@ import cors from "cors";
 
 dotenv.config();
 
+const app = express();
+const PORT = process.env.PORT || 5500;
+
 app.use(cors({
   origin: "http://localhost:3000", // endereço do frontend
   credentials: true,              // permite envio de cookies de sessão
 }));
-
-const app = express();
-const PORT = process.env.PORT || 5500;
 
 // Middleware
 app.use(express.json());

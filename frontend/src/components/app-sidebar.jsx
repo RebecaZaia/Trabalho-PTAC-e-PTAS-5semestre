@@ -21,16 +21,16 @@ const data = {
     name: "Rebeca",
     email: "rebeca@email.com",
     avatar:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairBun&accessoriesType=Prescription02&hairColor=BrownDark&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Twinkle&skinColor=Light",
+      "https://wallpapers.com/images/hd/cute-cat-eyes-profile-picture-uq3edzmg1guze2hh.jpg",
   },
   navMain: [
     {
-      title: "Dashboard",
+      title: "Posts",
       url: "/dashboard",
       icon: LayoutDashboard,
     },
     {
-      title: "Links",
+      title: "Projetos",
       url: "/links",
       icon: Link2,
     },
@@ -54,7 +54,7 @@ export function AppSidebar({...props}) {
             >
               <a href="#">
                 <Link className="size-5!" />
-                <span className="text-base font-semibold">minURL</span>
+                <span className="text-base font-semibold">IFMS</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

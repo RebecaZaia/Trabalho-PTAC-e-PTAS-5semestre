@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { auth } from "./lib/auth.js";
 import { toNodeHandler } from "better-auth/node";
-import { requireAuth } from "./middleware/auth.js";
+// import { requireAuth } from "./middleware/auth.js";
 import { prisma } from "./lib/prisma.js";
 import cors from "cors";
 
@@ -78,7 +78,7 @@ app.listen(PORT, () => {
   console.log(`Auth disponível em http://localhost:${PORT}/api/auth`);
 });
 
-app.get("/api/me", requireAuth, (req, res) => {
+app.get("/api/me", (req, res) => {
   res.json({
     message: "Bem-vindo ao seu perfil!",
     user: req.user, // Dados vindos do middleware

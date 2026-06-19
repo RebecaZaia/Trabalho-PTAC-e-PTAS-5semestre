@@ -15,7 +15,6 @@ model User {
   image         String?
   email         String
   emailVerified Boolean   @default(false)
-  password      String?
 
   posts       posts[]
   comentarios comentarios[]

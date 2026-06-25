@@ -1,10 +1,11 @@
 // src/middleware/auth.js
+import {fromNodeHeaders} from "better-auth/node";
 import { auth } from "../lib/auth.js";
 
 export const requireAuth = async (req, res, next) => {
   // O getSession lê os headers/cookies da requisição
   const session = await auth.api.getSession({
-    headers: req.headers,
+    headers: fromNodeHeaders(req.headers),
   });
 
   if (!session) {

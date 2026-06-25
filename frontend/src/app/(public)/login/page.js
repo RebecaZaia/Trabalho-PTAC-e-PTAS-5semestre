@@ -16,8 +16,7 @@ import { authClient } from "@/lib/auth-client";
 
 export default function Page() {
   // Estado dos campos
-  //const [email, setEmail] = useState("");
-  const [login, setLogin] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -29,7 +28,21 @@ export default function Page() {
     setError("");
     setLoading(true);
 
-    const res = await fetch("http://localhost:5500/api/auth/login", {
+    const { data, error } = await authClient.signIn.email({
+      email,
+      password,
+    });
+
+    setLoading(false);
+
+    if (error) {
+      setError("Email ou senha inválidos.");
+      return;
+    }
+
+    router.push("/dashboard"); // redireciona após login com sucesso
+
+    /*const res = await fetch("http://localhost:5500/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -57,7 +70,7 @@ export default function Page() {
       return;
     }
 
-    router.push("/dashboard"); // redireciona após login com sucesso
+    router.push("/dashboard"); // redireciona após login com sucesso*/
   }
 
   return (
@@ -77,15 +90,15 @@ export default function Page() {
                 )}
 
                 <Field>
-                  <FieldLabel htmlFor="emailOrCpf" className="text-gray-700">Identificação de usuário</FieldLabel>
+                  <FieldLabel htmlFor="email" className="text-gray-700">Identificação de usuário</FieldLabel>
                   <Input
-                    id="emailOrCpf"
-                    type="text"
-                    placeholder="E-mail ou CPF"
+                    id="email"
+                    type="email"
+                    placeholder="E-mail"
                     className="bg-white border-green-700"
                     required
-                    value={login}
-                    onChange={(e) => setLogin(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </Field>
                 <Field>

@@ -6,7 +6,7 @@ const rotasPrivadas = ["/dashboard"];
 // Lista de rotas que NÃO devem ser acessadas se já estiver logado
 const rotasDeAuth = ["/login", "/cadastrar"];
 
-export async function middleware(request) {
+export async function proxy(request) {
   const { pathname } = request.nextUrl;
 
   // Verifica a sessão perguntando ao backend
@@ -18,6 +18,7 @@ export async function middleware(request) {
 
   const session = await sessionResponse.json();
   const estaLogado = !!session?.user;
+  console.log(session?.user)
 
   // Se não está logado e tenta acessar rota privada → manda pro login
   if (!estaLogado && rotasPrivadas.some((r) => pathname.startsWith(r))) {

@@ -30,9 +30,9 @@ export type UserMinAggregateOutputType = {
   cpf: string | null
   image: string | null
   email: string | null
-  emailVerified: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
+  emailVerified: boolean | null
 }
 
 export type UserMaxAggregateOutputType = {
@@ -41,9 +41,9 @@ export type UserMaxAggregateOutputType = {
   cpf: string | null
   image: string | null
   email: string | null
-  emailVerified: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
+  emailVerified: boolean | null
 }
 
 export type UserCountAggregateOutputType = {
@@ -52,9 +52,9 @@ export type UserCountAggregateOutputType = {
   cpf: number
   image: number
   email: number
-  emailVerified: number
   createdAt: number
   updatedAt: number
+  emailVerified: number
   _all: number
 }
 
@@ -65,9 +65,9 @@ export type UserMinAggregateInputType = {
   cpf?: true
   image?: true
   email?: true
-  emailVerified?: true
   createdAt?: true
   updatedAt?: true
+  emailVerified?: true
 }
 
 export type UserMaxAggregateInputType = {
@@ -76,9 +76,9 @@ export type UserMaxAggregateInputType = {
   cpf?: true
   image?: true
   email?: true
-  emailVerified?: true
   createdAt?: true
   updatedAt?: true
+  emailVerified?: true
 }
 
 export type UserCountAggregateInputType = {
@@ -87,9 +87,9 @@ export type UserCountAggregateInputType = {
   cpf?: true
   image?: true
   email?: true
-  emailVerified?: true
   createdAt?: true
   updatedAt?: true
+  emailVerified?: true
   _all?: true
 }
 
@@ -167,13 +167,13 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 export type UserGroupByOutputType = {
   id: string
-  name: string | null
+  name: string
   cpf: string | null
   image: string | null
   email: string
-  emailVerified: boolean
   createdAt: Date
   updatedAt: Date
+  emailVerified: boolean
   _count: UserCountAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
@@ -199,13 +199,13 @@ export type UserWhereInput = {
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   id?: Prisma.StringFilter<"User"> | string
-  name?: Prisma.StringNullableFilter<"User"> | string | null
+  name?: Prisma.StringFilter<"User"> | string
   cpf?: Prisma.StringNullableFilter<"User"> | string | null
   image?: Prisma.StringNullableFilter<"User"> | string | null
   email?: Prisma.StringFilter<"User"> | string
-  emailVerified?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  emailVerified?: Prisma.BoolFilter<"User"> | boolean
   posts?: Prisma.PostsListRelationFilter
   comentarios?: Prisma.ComentariosListRelationFilter
   curtidas?: Prisma.CurtidasListRelationFilter
@@ -215,13 +215,13 @@ export type UserWhereInput = {
 
 export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrderInput | Prisma.SortOrder
+  name?: Prisma.SortOrder
   cpf?: Prisma.SortOrderInput | Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrder
-  emailVerified?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  emailVerified?: Prisma.SortOrder
   posts?: Prisma.postsOrderByRelationAggregateInput
   comentarios?: Prisma.comentariosOrderByRelationAggregateInput
   curtidas?: Prisma.curtidasOrderByRelationAggregateInput
@@ -235,12 +235,12 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
-  name?: Prisma.StringNullableFilter<"User"> | string | null
+  name?: Prisma.StringFilter<"User"> | string
   cpf?: Prisma.StringNullableFilter<"User"> | string | null
   image?: Prisma.StringNullableFilter<"User"> | string | null
-  emailVerified?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  emailVerified?: Prisma.BoolFilter<"User"> | boolean
   posts?: Prisma.PostsListRelationFilter
   comentarios?: Prisma.ComentariosListRelationFilter
   curtidas?: Prisma.CurtidasListRelationFilter
@@ -250,13 +250,13 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
 
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrderInput | Prisma.SortOrder
+  name?: Prisma.SortOrder
   cpf?: Prisma.SortOrderInput | Prisma.SortOrder
   image?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrder
-  emailVerified?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  emailVerified?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
   _min?: Prisma.UserMinOrderByAggregateInput
@@ -267,24 +267,24 @@ export type UserScalarWhereWithAggregatesInput = {
   OR?: Prisma.UserScalarWhereWithAggregatesInput[]
   NOT?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"User"> | string
-  name?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  name?: Prisma.StringWithAggregatesFilter<"User"> | string
   cpf?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   image?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
-  emailVerified?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  emailVerified?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
 }
 
 export type UserCreateInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   posts?: Prisma.postsCreateNestedManyWithoutUsuarioInput
   comentarios?: Prisma.comentariosCreateNestedManyWithoutUsuarioInput
   curtidas?: Prisma.curtidasCreateNestedManyWithoutUsuarioInput
@@ -293,14 +293,14 @@ export type UserCreateInput = {
 }
 
 export type UserUncheckedCreateInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   posts?: Prisma.postsUncheckedCreateNestedManyWithoutUsuarioInput
   comentarios?: Prisma.comentariosUncheckedCreateNestedManyWithoutUsuarioInput
   curtidas?: Prisma.curtidasUncheckedCreateNestedManyWithoutUsuarioInput
@@ -310,13 +310,13 @@ export type UserUncheckedCreateInput = {
 
 export type UserUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   posts?: Prisma.postsUpdateManyWithoutUsuarioNestedInput
   comentarios?: Prisma.comentariosUpdateManyWithoutUsuarioNestedInput
   curtidas?: Prisma.curtidasUpdateManyWithoutUsuarioNestedInput
@@ -326,13 +326,13 @@ export type UserUpdateInput = {
 
 export type UserUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   posts?: Prisma.postsUncheckedUpdateManyWithoutUsuarioNestedInput
   comentarios?: Prisma.comentariosUncheckedUpdateManyWithoutUsuarioNestedInput
   curtidas?: Prisma.curtidasUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -341,36 +341,36 @@ export type UserUncheckedUpdateInput = {
 }
 
 export type UserCreateManyInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
 }
 
 export type UserUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type UserUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type UserCountOrderByAggregateInput = {
@@ -379,9 +379,9 @@ export type UserCountOrderByAggregateInput = {
   cpf?: Prisma.SortOrder
   image?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  emailVerified?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  emailVerified?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
@@ -390,9 +390,9 @@ export type UserMaxOrderByAggregateInput = {
   cpf?: Prisma.SortOrder
   image?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  emailVerified?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  emailVerified?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
@@ -401,9 +401,9 @@ export type UserMinOrderByAggregateInput = {
   cpf?: Prisma.SortOrder
   image?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  emailVerified?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  emailVerified?: Prisma.SortOrder
 }
 
 export type UserScalarRelationFilter = {
@@ -419,12 +419,12 @@ export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }
 
-export type BoolFieldUpdateOperationsInput = {
-  set?: boolean
-}
-
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
 }
 
 export type UserCreateNestedOneWithoutPostsInput = {
@@ -498,14 +498,14 @@ export type UserUpdateOneRequiredWithoutAccountsNestedInput = {
 }
 
 export type UserCreateWithoutPostsInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   comentarios?: Prisma.comentariosCreateNestedManyWithoutUsuarioInput
   curtidas?: Prisma.curtidasCreateNestedManyWithoutUsuarioInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -513,14 +513,14 @@ export type UserCreateWithoutPostsInput = {
 }
 
 export type UserUncheckedCreateWithoutPostsInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   comentarios?: Prisma.comentariosUncheckedCreateNestedManyWithoutUsuarioInput
   curtidas?: Prisma.curtidasUncheckedCreateNestedManyWithoutUsuarioInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -545,13 +545,13 @@ export type UserUpdateToOneWithWhereWithoutPostsInput = {
 
 export type UserUpdateWithoutPostsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   comentarios?: Prisma.comentariosUpdateManyWithoutUsuarioNestedInput
   curtidas?: Prisma.curtidasUpdateManyWithoutUsuarioNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -560,13 +560,13 @@ export type UserUpdateWithoutPostsInput = {
 
 export type UserUncheckedUpdateWithoutPostsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   comentarios?: Prisma.comentariosUncheckedUpdateManyWithoutUsuarioNestedInput
   curtidas?: Prisma.curtidasUncheckedUpdateManyWithoutUsuarioNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -574,14 +574,14 @@ export type UserUncheckedUpdateWithoutPostsInput = {
 }
 
 export type UserCreateWithoutComentariosInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   posts?: Prisma.postsCreateNestedManyWithoutUsuarioInput
   curtidas?: Prisma.curtidasCreateNestedManyWithoutUsuarioInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -589,14 +589,14 @@ export type UserCreateWithoutComentariosInput = {
 }
 
 export type UserUncheckedCreateWithoutComentariosInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   posts?: Prisma.postsUncheckedCreateNestedManyWithoutUsuarioInput
   curtidas?: Prisma.curtidasUncheckedCreateNestedManyWithoutUsuarioInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -621,13 +621,13 @@ export type UserUpdateToOneWithWhereWithoutComentariosInput = {
 
 export type UserUpdateWithoutComentariosInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   posts?: Prisma.postsUpdateManyWithoutUsuarioNestedInput
   curtidas?: Prisma.curtidasUpdateManyWithoutUsuarioNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -636,13 +636,13 @@ export type UserUpdateWithoutComentariosInput = {
 
 export type UserUncheckedUpdateWithoutComentariosInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   posts?: Prisma.postsUncheckedUpdateManyWithoutUsuarioNestedInput
   curtidas?: Prisma.curtidasUncheckedUpdateManyWithoutUsuarioNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -650,14 +650,14 @@ export type UserUncheckedUpdateWithoutComentariosInput = {
 }
 
 export type UserCreateWithoutCurtidasInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   posts?: Prisma.postsCreateNestedManyWithoutUsuarioInput
   comentarios?: Prisma.comentariosCreateNestedManyWithoutUsuarioInput
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -665,14 +665,14 @@ export type UserCreateWithoutCurtidasInput = {
 }
 
 export type UserUncheckedCreateWithoutCurtidasInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   posts?: Prisma.postsUncheckedCreateNestedManyWithoutUsuarioInput
   comentarios?: Prisma.comentariosUncheckedCreateNestedManyWithoutUsuarioInput
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -697,13 +697,13 @@ export type UserUpdateToOneWithWhereWithoutCurtidasInput = {
 
 export type UserUpdateWithoutCurtidasInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   posts?: Prisma.postsUpdateManyWithoutUsuarioNestedInput
   comentarios?: Prisma.comentariosUpdateManyWithoutUsuarioNestedInput
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -712,13 +712,13 @@ export type UserUpdateWithoutCurtidasInput = {
 
 export type UserUncheckedUpdateWithoutCurtidasInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   posts?: Prisma.postsUncheckedUpdateManyWithoutUsuarioNestedInput
   comentarios?: Prisma.comentariosUncheckedUpdateManyWithoutUsuarioNestedInput
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -726,14 +726,14 @@ export type UserUncheckedUpdateWithoutCurtidasInput = {
 }
 
 export type UserCreateWithoutSessionsInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   posts?: Prisma.postsCreateNestedManyWithoutUsuarioInput
   comentarios?: Prisma.comentariosCreateNestedManyWithoutUsuarioInput
   curtidas?: Prisma.curtidasCreateNestedManyWithoutUsuarioInput
@@ -741,14 +741,14 @@ export type UserCreateWithoutSessionsInput = {
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   posts?: Prisma.postsUncheckedCreateNestedManyWithoutUsuarioInput
   comentarios?: Prisma.comentariosUncheckedCreateNestedManyWithoutUsuarioInput
   curtidas?: Prisma.curtidasUncheckedCreateNestedManyWithoutUsuarioInput
@@ -773,13 +773,13 @@ export type UserUpdateToOneWithWhereWithoutSessionsInput = {
 
 export type UserUpdateWithoutSessionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   posts?: Prisma.postsUpdateManyWithoutUsuarioNestedInput
   comentarios?: Prisma.comentariosUpdateManyWithoutUsuarioNestedInput
   curtidas?: Prisma.curtidasUpdateManyWithoutUsuarioNestedInput
@@ -788,13 +788,13 @@ export type UserUpdateWithoutSessionsInput = {
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   posts?: Prisma.postsUncheckedUpdateManyWithoutUsuarioNestedInput
   comentarios?: Prisma.comentariosUncheckedUpdateManyWithoutUsuarioNestedInput
   curtidas?: Prisma.curtidasUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -802,14 +802,14 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
 }
 
 export type UserCreateWithoutAccountsInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   posts?: Prisma.postsCreateNestedManyWithoutUsuarioInput
   comentarios?: Prisma.comentariosCreateNestedManyWithoutUsuarioInput
   curtidas?: Prisma.curtidasCreateNestedManyWithoutUsuarioInput
@@ -817,14 +817,14 @@ export type UserCreateWithoutAccountsInput = {
 }
 
 export type UserUncheckedCreateWithoutAccountsInput = {
-  id?: string
-  name?: string | null
+  id: string
+  name: string
   cpf?: string | null
   image?: string | null
   email: string
-  emailVerified?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  emailVerified?: boolean
   posts?: Prisma.postsUncheckedCreateNestedManyWithoutUsuarioInput
   comentarios?: Prisma.comentariosUncheckedCreateNestedManyWithoutUsuarioInput
   curtidas?: Prisma.curtidasUncheckedCreateNestedManyWithoutUsuarioInput
@@ -849,13 +849,13 @@ export type UserUpdateToOneWithWhereWithoutAccountsInput = {
 
 export type UserUpdateWithoutAccountsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   posts?: Prisma.postsUpdateManyWithoutUsuarioNestedInput
   comentarios?: Prisma.comentariosUpdateManyWithoutUsuarioNestedInput
   curtidas?: Prisma.curtidasUpdateManyWithoutUsuarioNestedInput
@@ -864,13 +864,13 @@ export type UserUpdateWithoutAccountsInput = {
 
 export type UserUncheckedUpdateWithoutAccountsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   cpf?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   posts?: Prisma.postsUncheckedUpdateManyWithoutUsuarioNestedInput
   comentarios?: Prisma.comentariosUncheckedUpdateManyWithoutUsuarioNestedInput
   curtidas?: Prisma.curtidasUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -950,9 +950,9 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   cpf?: boolean
   image?: boolean
   email?: boolean
-  emailVerified?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  emailVerified?: boolean
   posts?: boolean | Prisma.User$postsArgs<ExtArgs>
   comentarios?: boolean | Prisma.User$comentariosArgs<ExtArgs>
   curtidas?: boolean | Prisma.User$curtidasArgs<ExtArgs>
@@ -967,9 +967,9 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   cpf?: boolean
   image?: boolean
   email?: boolean
-  emailVerified?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  emailVerified?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -978,9 +978,9 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   cpf?: boolean
   image?: boolean
   email?: boolean
-  emailVerified?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  emailVerified?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
@@ -989,12 +989,12 @@ export type UserSelectScalar = {
   cpf?: boolean
   image?: boolean
   email?: boolean
-  emailVerified?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  emailVerified?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "cpf" | "image" | "email" | "emailVerified" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "cpf" | "image" | "email" | "createdAt" | "updatedAt" | "emailVerified", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   posts?: boolean | Prisma.User$postsArgs<ExtArgs>
   comentarios?: boolean | Prisma.User$comentariosArgs<ExtArgs>
@@ -1017,13 +1017,13 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    name: string | null
+    name: string
     cpf: string | null
     image: string | null
     email: string
-    emailVerified: boolean
     createdAt: Date
     updatedAt: Date
+    emailVerified: boolean
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -1457,9 +1457,9 @@ export interface UserFieldRefs {
   readonly cpf: Prisma.FieldRef<"User", 'String'>
   readonly image: Prisma.FieldRef<"User", 'String'>
   readonly email: Prisma.FieldRef<"User", 'String'>
-  readonly emailVerified: Prisma.FieldRef<"User", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly emailVerified: Prisma.FieldRef<"User", 'Boolean'>
 }
     
 

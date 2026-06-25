@@ -28,6 +28,10 @@ export const auth = betterAuth({
       maxAge: 5 * 60, // 5 minutos
     },
   },
+  cokkieAttributes: {
+    secure: false,
+    sameSite: "lax",
+  },
 
   // Provedores OAuth (opcional)
   socialProviders: {

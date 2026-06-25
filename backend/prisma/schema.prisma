@@ -1,3 +1,4 @@
+
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -7,23 +8,23 @@ datasource db {
   provider = "postgresql"
 }
 
-
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  cpf           String?
-  image         String?
-  email         String
-  emailVerified Boolean   @default(false)
+  id    String  @id
+  name  String
+  cpf   String?
+  image String?
+  email String
 
   posts       posts[]
   comentarios comentarios[]
   curtidas    curtidas[]
 
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt
-  sessions      Session[]
-  accounts      Account[]
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt
+  sessions  Session[]
+  accounts  Account[]
+
+  emailVerified Boolean @default(false)
 
   @@unique([email])
   @@map("user")
@@ -49,7 +50,7 @@ model posts {
   id_user String
   id_proj String
 
-  usuario User @relation(fields: [id_user], references: [id])
+  usuario User     @relation(fields: [id_user], references: [id])
   projeto projetos @relation(fields: [id_proj], references: [id_proj])
 
   comentarios comentarios[]
@@ -62,8 +63,8 @@ model comentarios {
   date_hora  DateTime
   comentario String
 
-  post    posts    @relation(fields: [id_post], references: [id_post])
-  usuario User @relation(fields: [id_user], references: [id])
+  post    posts @relation(fields: [id_post], references: [id_post])
+  usuario User  @relation(fields: [id_user], references: [id])
 
   @@id([id_post, id_user, date_hora])
 }
@@ -74,22 +75,23 @@ model curtidas {
   id_proj String
 
   post    posts    @relation(fields: [id_post], references: [id_post])
-  usuario User @relation(fields: [id_user], references: [id])
+  usuario User     @relation(fields: [id_user], references: [id])
   projeto projetos @relation(fields: [id_proj], references: [id_proj])
 
   @@id([id_post, id_user])
 }
+
 model Session {
-  id        String   @id @default(uuid())
+  id           String   @id
   sessionToken String   @unique
-  expiresAt DateTime
-  token     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  ipAddress String?
-  userAgent String?
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt    DateTime
+  token        String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  ipAddress    String?
+  userAgent    String?
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([token])
   @@index([userId])

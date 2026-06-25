@@ -15,14 +15,9 @@ import {
 } from "@/components/ui/sidebar"
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
+import {authClient} from "@/lib/auth-client";
 
 const data = {
-  user: {
-    name: "Rebeca",
-    email: "rebeca@email.com",
-    avatar:
-      "https://wallpapers.com/images/hd/cute-cat-eyes-profile-picture-uq3edzmg1guze2hh.jpg",
-  },
   navMain: [
     {
       title: "Posts",
@@ -43,6 +38,16 @@ const data = {
 }
 
 export function AppSidebar({...props}) {
+  const { data: session, isPending } = authClient.useSession();
+  const user = session?.user
+    ? {
+        name: session.user.name ?? "Usuário",
+        email: session.user.email ?? "",
+        image:
+          session.user.image ??
+          `https://api.dicebear.com/10.x/adventurer-neutral/svg?seed=${session.user.name}`,
+      }
+    : null;
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -64,7 +69,7 @@ export function AppSidebar({...props}) {
         <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        {!isPending && user && <NavUser user={user} />}
       </SidebarFooter>
     </Sidebar>
   );

@@ -25,7 +25,7 @@ export type AggregateProjetos = {
 }
 
 export type ProjetosMinAggregateOutputType = {
-  id_proj: string | null
+  id: string | null
   nome: string | null
   conteudo: string | null
   data_inicial: Date | null
@@ -34,7 +34,7 @@ export type ProjetosMinAggregateOutputType = {
 }
 
 export type ProjetosMaxAggregateOutputType = {
-  id_proj: string | null
+  id: string | null
   nome: string | null
   conteudo: string | null
   data_inicial: Date | null
@@ -43,7 +43,7 @@ export type ProjetosMaxAggregateOutputType = {
 }
 
 export type ProjetosCountAggregateOutputType = {
-  id_proj: number
+  id: number
   nome: number
   conteudo: number
   data_inicial: number
@@ -54,7 +54,7 @@ export type ProjetosCountAggregateOutputType = {
 
 
 export type ProjetosMinAggregateInputType = {
-  id_proj?: true
+  id?: true
   nome?: true
   conteudo?: true
   data_inicial?: true
@@ -63,7 +63,7 @@ export type ProjetosMinAggregateInputType = {
 }
 
 export type ProjetosMaxAggregateInputType = {
-  id_proj?: true
+  id?: true
   nome?: true
   conteudo?: true
   data_inicial?: true
@@ -72,7 +72,7 @@ export type ProjetosMaxAggregateInputType = {
 }
 
 export type ProjetosCountAggregateInputType = {
-  id_proj?: true
+  id?: true
   nome?: true
   conteudo?: true
   data_inicial?: true
@@ -154,7 +154,7 @@ export type projetosGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 }
 
 export type ProjetosGroupByOutputType = {
-  id_proj: string
+  id: string
   nome: string
   conteudo: string
   data_inicial: Date
@@ -184,7 +184,7 @@ export type projetosWhereInput = {
   AND?: Prisma.projetosWhereInput | Prisma.projetosWhereInput[]
   OR?: Prisma.projetosWhereInput[]
   NOT?: Prisma.projetosWhereInput | Prisma.projetosWhereInput[]
-  id_proj?: Prisma.StringFilter<"projetos"> | string
+  id?: Prisma.StringFilter<"projetos"> | string
   nome?: Prisma.StringFilter<"projetos"> | string
   conteudo?: Prisma.StringFilter<"projetos"> | string
   data_inicial?: Prisma.DateTimeFilter<"projetos"> | Date | string
@@ -195,7 +195,7 @@ export type projetosWhereInput = {
 }
 
 export type projetosOrderByWithRelationInput = {
-  id_proj?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
   data_inicial?: Prisma.SortOrder
@@ -206,7 +206,7 @@ export type projetosOrderByWithRelationInput = {
 }
 
 export type projetosWhereUniqueInput = Prisma.AtLeast<{
-  id_proj?: string
+  id?: string
   AND?: Prisma.projetosWhereInput | Prisma.projetosWhereInput[]
   OR?: Prisma.projetosWhereInput[]
   NOT?: Prisma.projetosWhereInput | Prisma.projetosWhereInput[]
@@ -217,10 +217,10 @@ export type projetosWhereUniqueInput = Prisma.AtLeast<{
   data_cadastro?: Prisma.DateTimeFilter<"projetos"> | Date | string
   posts?: Prisma.PostsListRelationFilter
   curtidas?: Prisma.CurtidasListRelationFilter
-}, "id_proj">
+}, "id">
 
 export type projetosOrderByWithAggregationInput = {
-  id_proj?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
   data_inicial?: Prisma.SortOrder
@@ -235,7 +235,7 @@ export type projetosScalarWhereWithAggregatesInput = {
   AND?: Prisma.projetosScalarWhereWithAggregatesInput | Prisma.projetosScalarWhereWithAggregatesInput[]
   OR?: Prisma.projetosScalarWhereWithAggregatesInput[]
   NOT?: Prisma.projetosScalarWhereWithAggregatesInput | Prisma.projetosScalarWhereWithAggregatesInput[]
-  id_proj?: Prisma.StringWithAggregatesFilter<"projetos"> | string
+  id?: Prisma.StringWithAggregatesFilter<"projetos"> | string
   nome?: Prisma.StringWithAggregatesFilter<"projetos"> | string
   conteudo?: Prisma.StringWithAggregatesFilter<"projetos"> | string
   data_inicial?: Prisma.DateTimeWithAggregatesFilter<"projetos"> | Date | string
@@ -244,7 +244,7 @@ export type projetosScalarWhereWithAggregatesInput = {
 }
 
 export type projetosCreateInput = {
-  id_proj?: string
+  id?: string
   nome: string
   conteudo: string
   data_inicial: Date | string
@@ -255,7 +255,7 @@ export type projetosCreateInput = {
 }
 
 export type projetosUncheckedCreateInput = {
-  id_proj?: string
+  id?: string
   nome: string
   conteudo: string
   data_inicial: Date | string
@@ -266,7 +266,7 @@ export type projetosUncheckedCreateInput = {
 }
 
 export type projetosUpdateInput = {
-  id_proj?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   data_inicial?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -277,7 +277,7 @@ export type projetosUpdateInput = {
 }
 
 export type projetosUncheckedUpdateInput = {
-  id_proj?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   data_inicial?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -288,7 +288,7 @@ export type projetosUncheckedUpdateInput = {
 }
 
 export type projetosCreateManyInput = {
-  id_proj?: string
+  id?: string
   nome: string
   conteudo: string
   data_inicial: Date | string
@@ -297,7 +297,7 @@ export type projetosCreateManyInput = {
 }
 
 export type projetosUpdateManyMutationInput = {
-  id_proj?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   data_inicial?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -306,7 +306,7 @@ export type projetosUpdateManyMutationInput = {
 }
 
 export type projetosUncheckedUpdateManyInput = {
-  id_proj?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   data_inicial?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -315,7 +315,7 @@ export type projetosUncheckedUpdateManyInput = {
 }
 
 export type projetosCountOrderByAggregateInput = {
-  id_proj?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
   data_inicial?: Prisma.SortOrder
@@ -324,7 +324,7 @@ export type projetosCountOrderByAggregateInput = {
 }
 
 export type projetosMaxOrderByAggregateInput = {
-  id_proj?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
   data_inicial?: Prisma.SortOrder
@@ -333,7 +333,7 @@ export type projetosMaxOrderByAggregateInput = {
 }
 
 export type projetosMinOrderByAggregateInput = {
-  id_proj?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
   data_inicial?: Prisma.SortOrder
@@ -375,7 +375,7 @@ export type projetosUpdateOneRequiredWithoutCurtidasNestedInput = {
 }
 
 export type projetosCreateWithoutPostsInput = {
-  id_proj?: string
+  id?: string
   nome: string
   conteudo: string
   data_inicial: Date | string
@@ -385,7 +385,7 @@ export type projetosCreateWithoutPostsInput = {
 }
 
 export type projetosUncheckedCreateWithoutPostsInput = {
-  id_proj?: string
+  id?: string
   nome: string
   conteudo: string
   data_inicial: Date | string
@@ -411,7 +411,7 @@ export type projetosUpdateToOneWithWhereWithoutPostsInput = {
 }
 
 export type projetosUpdateWithoutPostsInput = {
-  id_proj?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   data_inicial?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -421,7 +421,7 @@ export type projetosUpdateWithoutPostsInput = {
 }
 
 export type projetosUncheckedUpdateWithoutPostsInput = {
-  id_proj?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   data_inicial?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -431,7 +431,7 @@ export type projetosUncheckedUpdateWithoutPostsInput = {
 }
 
 export type projetosCreateWithoutCurtidasInput = {
-  id_proj?: string
+  id?: string
   nome: string
   conteudo: string
   data_inicial: Date | string
@@ -441,7 +441,7 @@ export type projetosCreateWithoutCurtidasInput = {
 }
 
 export type projetosUncheckedCreateWithoutCurtidasInput = {
-  id_proj?: string
+  id?: string
   nome: string
   conteudo: string
   data_inicial: Date | string
@@ -467,7 +467,7 @@ export type projetosUpdateToOneWithWhereWithoutCurtidasInput = {
 }
 
 export type projetosUpdateWithoutCurtidasInput = {
-  id_proj?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   data_inicial?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -477,7 +477,7 @@ export type projetosUpdateWithoutCurtidasInput = {
 }
 
 export type projetosUncheckedUpdateWithoutCurtidasInput = {
-  id_proj?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   data_inicial?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -527,7 +527,7 @@ export type ProjetosCountOutputTypeCountCurtidasArgs<ExtArgs extends runtime.Typ
 
 
 export type projetosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id_proj?: boolean
+  id?: boolean
   nome?: boolean
   conteudo?: boolean
   data_inicial?: boolean
@@ -539,7 +539,7 @@ export type projetosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
 }, ExtArgs["result"]["projetos"]>
 
 export type projetosSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id_proj?: boolean
+  id?: boolean
   nome?: boolean
   conteudo?: boolean
   data_inicial?: boolean
@@ -548,7 +548,7 @@ export type projetosSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
 }, ExtArgs["result"]["projetos"]>
 
 export type projetosSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id_proj?: boolean
+  id?: boolean
   nome?: boolean
   conteudo?: boolean
   data_inicial?: boolean
@@ -557,7 +557,7 @@ export type projetosSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
 }, ExtArgs["result"]["projetos"]>
 
 export type projetosSelectScalar = {
-  id_proj?: boolean
+  id?: boolean
   nome?: boolean
   conteudo?: boolean
   data_inicial?: boolean
@@ -565,7 +565,7 @@ export type projetosSelectScalar = {
   data_cadastro?: boolean
 }
 
-export type projetosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_proj" | "nome" | "conteudo" | "data_inicial" | "data_final" | "data_cadastro", ExtArgs["result"]["projetos"]>
+export type projetosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "conteudo" | "data_inicial" | "data_final" | "data_cadastro", ExtArgs["result"]["projetos"]>
 export type projetosInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   posts?: boolean | Prisma.projetos$postsArgs<ExtArgs>
   curtidas?: boolean | Prisma.projetos$curtidasArgs<ExtArgs>
@@ -581,7 +581,7 @@ export type $projetosPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     curtidas: Prisma.$curtidasPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id_proj: string
+    id: string
     nome: string
     conteudo: string
     data_inicial: Date
@@ -670,8 +670,8 @@ export interface projetosDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * // Get first 10 Projetos
    * const projetos = await prisma.projetos.findMany({ take: 10 })
    * 
-   * // Only select the `id_proj`
-   * const projetosWithId_projOnly = await prisma.projetos.findMany({ select: { id_proj: true } })
+   * // Only select the `id`
+   * const projetosWithIdOnly = await prisma.projetos.findMany({ select: { id: true } })
    * 
    */
   findMany<T extends projetosFindManyArgs>(args?: Prisma.SelectSubset<T, projetosFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$projetosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -715,9 +715,9 @@ export interface projetosDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   ]
    * })
    * 
-   * // Create many Projetos and only return the `id_proj`
-   * const projetosWithId_projOnly = await prisma.projetos.createManyAndReturn({
-   *   select: { id_proj: true },
+   * // Create many Projetos and only return the `id`
+   * const projetosWithIdOnly = await prisma.projetos.createManyAndReturn({
+   *   select: { id: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -806,9 +806,9 @@ export interface projetosDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   ]
    * })
    * 
-   * // Update zero or more Projetos and only return the `id_proj`
-   * const projetosWithId_projOnly = await prisma.projetos.updateManyAndReturn({
-   *   select: { id_proj: true },
+   * // Update zero or more Projetos and only return the `id`
+   * const projetosWithIdOnly = await prisma.projetos.updateManyAndReturn({
+   *   select: { id: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -1012,7 +1012,7 @@ export interface Prisma__projetosClient<T, Null = never, ExtArgs extends runtime
  * Fields of the projetos model
  */
 export interface projetosFieldRefs {
-  readonly id_proj: Prisma.FieldRef<"projetos", 'String'>
+  readonly id: Prisma.FieldRef<"projetos", 'String'>
   readonly nome: Prisma.FieldRef<"projetos", 'String'>
   readonly conteudo: Prisma.FieldRef<"projetos", 'String'>
   readonly data_inicial: Prisma.FieldRef<"projetos", 'DateTime'>

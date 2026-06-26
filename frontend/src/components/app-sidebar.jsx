@@ -26,7 +26,7 @@ const data = {
     },
     {
       title: "Projetos",
-      url: "/links",
+      url: "/projetos-admin",
       icon: Link2,
     },
     {

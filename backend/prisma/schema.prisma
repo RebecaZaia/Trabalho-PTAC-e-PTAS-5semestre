@@ -31,7 +31,7 @@ model User {
 }
 
 model projetos {
-  id_proj       String   @id @default(uuid())
+  id            String   @id @default(uuid())
   nome          String
   conteudo      String
   data_inicial  DateTime
@@ -43,7 +43,7 @@ model projetos {
 }
 
 model posts {
-  id_post   String   @id @default(uuid())
+  id        String   @id @default(uuid())
   conteudo  String
   date_hora DateTime
 
@@ -51,7 +51,7 @@ model posts {
   id_proj String
 
   usuario User     @relation(fields: [id_user], references: [id])
-  projeto projetos @relation(fields: [id_proj], references: [id_proj])
+  projeto projetos @relation(fields: [id_proj], references: [id])
 
   comentarios comentarios[]
   curtidas    curtidas[]
@@ -63,7 +63,7 @@ model comentarios {
   date_hora  DateTime
   comentario String
 
-  post    posts @relation(fields: [id_post], references: [id_post])
+  post    posts @relation(fields: [id_post], references: [id])
   usuario User  @relation(fields: [id_user], references: [id])
 
   @@id([id_post, id_user, date_hora])
@@ -74,16 +74,15 @@ model curtidas {
   id_user String
   id_proj String
 
-  post    posts    @relation(fields: [id_post], references: [id_post])
+  post    posts    @relation(fields: [id_post], references: [id])
   usuario User     @relation(fields: [id_user], references: [id])
-  projeto projetos @relation(fields: [id_proj], references: [id_proj])
+  projeto projetos @relation(fields: [id_proj], references: [id])
 
   @@id([id_post, id_user])
 }
 
 model Session {
   id           String   @id
-  sessionToken String   @unique
   expiresAt    DateTime
   token        String
   createdAt    DateTime @default(now())

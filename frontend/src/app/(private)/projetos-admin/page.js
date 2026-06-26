@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Plus } from "lucide-react";
 import CardProjetoAdmin from "@/components/card-proj-admin";
 import ProjetoForm from "@/components/proj-form";
 
-const API = "http://localhost:5500/api/plans";
+const API = "http://localhost:5500/api/projetos"; // Substitua pelo endpoint correto da sua API
 
 export default function ProjetosAdmin() {
-  const [plans, setPlans] = useState([]);
+  const [projetos, setProjetos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [editing, setEditing] = useState(null); // null = criar, objeto = editar
@@ -24,17 +24,20 @@ export default function ProjetosAdmin() {
   const [error, setError] = useState("");
   const [confirmDelete, setConfirmDelete] = useState(null); // id do plano a deletar
 
-  useEffect(() => {
-    async function fetchProjetos() {
-      setLoading(true);
+  const fetchProjetos = useCallback(async () => {
+    setLoading(true);
+    try {
       const res = await fetch(API);
       const data = await res.json();
       setProjetos(data);
+    } finally {
       setLoading(false);
     }
-
-    fetchProjetos();
   }, []);
+
+  useEffect(() => {
+    fetchProjetos();
+  }, [fetchProjetos]);
 
   function openCreate() {
     setEditing(null);
@@ -43,13 +46,13 @@ export default function ProjetosAdmin() {
     setSheetOpen(true);
   }
 
-  function openEdit(plan) {
-    setEditing(plan);
+  function openEdit(projeto) {
+    setEditing(projeto);
     setForm({
-      nome: plan.nome,
-      conteudo: plan.conteudo,
-      data_inicial: plan.data_inicial,
-      data_final: plan.data_final,
+      nome: projeto.nome,
+      conteudo: projeto.conteudo,
+      data_inicial: projeto.data_inicial,
+      data_final: projeto.data_final,
     });
     setError("");
     setSheetOpen(true);
@@ -78,7 +81,7 @@ export default function ProjetosAdmin() {
 
     if (!res.ok) {
       const data = await res.json();
-      setError(data.error ?? "Erro ao salvar plano.");
+      setError(data.error ?? "Erro ao salvar projeto.");
       return;
     }
 

@@ -56,13 +56,18 @@ export async function atualizar(req, res) {
 
 // DELETE /api/plans/:id
 export async function deletar(req, res) {
-  const id = req.params.id;
+  try {
+    const id = req.params.id;
 
-  const projeto = await ProjModel.buscarProjetoPorId(id);
-  if (!projeto) {
-    return res.status(404).json({ error: "Projeto não encontrado." });
+    const projeto = await ProjModel.buscarProjetoPorId(id);
+    if (!projeto) {
+      return res.status(404).json({ error: "Projeto não encontrado." });
+    }
+
+    await ProjModel.deletarProjeto(id);
+    return res.status(204).send();
+  } catch (error) {
+    console.error("Erro ao deletar projeto:", error);
+    return res.status(500).json({ error: "Erro interno ao deletar o projeto." });
   }
-
-  await ProjModel.deletarProjeto(id);
-  return res.status(204).send();
 }

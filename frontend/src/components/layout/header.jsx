@@ -34,8 +34,8 @@ export default function Header() {
       <div className="flex items-center gap-4 text-white">
         <Tabs defaultValue="overview">
           <TabsList variant="line">
-            <TabsTrigger value="overview"  className="text-white">categ ex1</TabsTrigger>
-            <TabsTrigger value="analytics" className="text-white">categ ex2</TabsTrigger>
+            <TabsTrigger value="overview"  className="text-white">Pagina inicial</TabsTrigger>
+            <TabsTrigger value="analytics" className="text-white"><a href="/projetos">Projetos</a></TabsTrigger>
             <TabsTrigger value="reports" className="text-white">categ ex3</TabsTrigger>
           </TabsList>
         </Tabs>

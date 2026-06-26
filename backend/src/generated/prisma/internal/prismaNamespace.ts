@@ -1057,7 +1057,7 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 
 
 export const ProjetosScalarFieldEnum = {
-  id_proj: 'id_proj',
+  id: 'id',
   nome: 'nome',
   conteudo: 'conteudo',
   data_inicial: 'data_inicial',
@@ -1069,7 +1069,7 @@ export type ProjetosScalarFieldEnum = (typeof ProjetosScalarFieldEnum)[keyof typ
 
 
 export const PostsScalarFieldEnum = {
-  id_post: 'id_post',
+  id: 'id',
   conteudo: 'conteudo',
   date_hora: 'date_hora',
   id_user: 'id_user',
@@ -1100,7 +1100,6 @@ export type CurtidasScalarFieldEnum = (typeof CurtidasScalarFieldEnum)[keyof typ
 
 export const SessionScalarFieldEnum = {
   id: 'id',
-  sessionToken: 'sessionToken',
   expiresAt: 'expiresAt',
   token: 'token',
   createdAt: 'createdAt',

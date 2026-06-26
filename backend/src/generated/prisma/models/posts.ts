@@ -25,7 +25,7 @@ export type AggregatePosts = {
 }
 
 export type PostsMinAggregateOutputType = {
-  id_post: string | null
+  id: string | null
   conteudo: string | null
   date_hora: Date | null
   id_user: string | null
@@ -33,7 +33,7 @@ export type PostsMinAggregateOutputType = {
 }
 
 export type PostsMaxAggregateOutputType = {
-  id_post: string | null
+  id: string | null
   conteudo: string | null
   date_hora: Date | null
   id_user: string | null
@@ -41,7 +41,7 @@ export type PostsMaxAggregateOutputType = {
 }
 
 export type PostsCountAggregateOutputType = {
-  id_post: number
+  id: number
   conteudo: number
   date_hora: number
   id_user: number
@@ -51,7 +51,7 @@ export type PostsCountAggregateOutputType = {
 
 
 export type PostsMinAggregateInputType = {
-  id_post?: true
+  id?: true
   conteudo?: true
   date_hora?: true
   id_user?: true
@@ -59,7 +59,7 @@ export type PostsMinAggregateInputType = {
 }
 
 export type PostsMaxAggregateInputType = {
-  id_post?: true
+  id?: true
   conteudo?: true
   date_hora?: true
   id_user?: true
@@ -67,7 +67,7 @@ export type PostsMaxAggregateInputType = {
 }
 
 export type PostsCountAggregateInputType = {
-  id_post?: true
+  id?: true
   conteudo?: true
   date_hora?: true
   id_user?: true
@@ -148,7 +148,7 @@ export type postsGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 }
 
 export type PostsGroupByOutputType = {
-  id_post: string
+  id: string
   conteudo: string
   date_hora: Date
   id_user: string
@@ -177,7 +177,7 @@ export type postsWhereInput = {
   AND?: Prisma.postsWhereInput | Prisma.postsWhereInput[]
   OR?: Prisma.postsWhereInput[]
   NOT?: Prisma.postsWhereInput | Prisma.postsWhereInput[]
-  id_post?: Prisma.StringFilter<"posts"> | string
+  id?: Prisma.StringFilter<"posts"> | string
   conteudo?: Prisma.StringFilter<"posts"> | string
   date_hora?: Prisma.DateTimeFilter<"posts"> | Date | string
   id_user?: Prisma.StringFilter<"posts"> | string
@@ -189,7 +189,7 @@ export type postsWhereInput = {
 }
 
 export type postsOrderByWithRelationInput = {
-  id_post?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
   date_hora?: Prisma.SortOrder
   id_user?: Prisma.SortOrder
@@ -201,7 +201,7 @@ export type postsOrderByWithRelationInput = {
 }
 
 export type postsWhereUniqueInput = Prisma.AtLeast<{
-  id_post?: string
+  id?: string
   AND?: Prisma.postsWhereInput | Prisma.postsWhereInput[]
   OR?: Prisma.postsWhereInput[]
   NOT?: Prisma.postsWhereInput | Prisma.postsWhereInput[]
@@ -213,10 +213,10 @@ export type postsWhereUniqueInput = Prisma.AtLeast<{
   projeto?: Prisma.XOR<Prisma.ProjetosScalarRelationFilter, Prisma.projetosWhereInput>
   comentarios?: Prisma.ComentariosListRelationFilter
   curtidas?: Prisma.CurtidasListRelationFilter
-}, "id_post">
+}, "id">
 
 export type postsOrderByWithAggregationInput = {
-  id_post?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
   date_hora?: Prisma.SortOrder
   id_user?: Prisma.SortOrder
@@ -230,7 +230,7 @@ export type postsScalarWhereWithAggregatesInput = {
   AND?: Prisma.postsScalarWhereWithAggregatesInput | Prisma.postsScalarWhereWithAggregatesInput[]
   OR?: Prisma.postsScalarWhereWithAggregatesInput[]
   NOT?: Prisma.postsScalarWhereWithAggregatesInput | Prisma.postsScalarWhereWithAggregatesInput[]
-  id_post?: Prisma.StringWithAggregatesFilter<"posts"> | string
+  id?: Prisma.StringWithAggregatesFilter<"posts"> | string
   conteudo?: Prisma.StringWithAggregatesFilter<"posts"> | string
   date_hora?: Prisma.DateTimeWithAggregatesFilter<"posts"> | Date | string
   id_user?: Prisma.StringWithAggregatesFilter<"posts"> | string
@@ -238,7 +238,7 @@ export type postsScalarWhereWithAggregatesInput = {
 }
 
 export type postsCreateInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   usuario: Prisma.UserCreateNestedOneWithoutPostsInput
@@ -248,7 +248,7 @@ export type postsCreateInput = {
 }
 
 export type postsUncheckedCreateInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   id_user: string
@@ -258,7 +258,7 @@ export type postsUncheckedCreateInput = {
 }
 
 export type postsUpdateInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usuario?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
@@ -268,7 +268,7 @@ export type postsUpdateInput = {
 }
 
 export type postsUncheckedUpdateInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_user?: Prisma.StringFieldUpdateOperationsInput | string
@@ -278,7 +278,7 @@ export type postsUncheckedUpdateInput = {
 }
 
 export type postsCreateManyInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   id_user: string
@@ -286,13 +286,13 @@ export type postsCreateManyInput = {
 }
 
 export type postsUpdateManyMutationInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type postsUncheckedUpdateManyInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_user?: Prisma.StringFieldUpdateOperationsInput | string
@@ -310,7 +310,7 @@ export type postsOrderByRelationAggregateInput = {
 }
 
 export type postsCountOrderByAggregateInput = {
-  id_post?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
   date_hora?: Prisma.SortOrder
   id_user?: Prisma.SortOrder
@@ -318,7 +318,7 @@ export type postsCountOrderByAggregateInput = {
 }
 
 export type postsMaxOrderByAggregateInput = {
-  id_post?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
   date_hora?: Prisma.SortOrder
   id_user?: Prisma.SortOrder
@@ -326,7 +326,7 @@ export type postsMaxOrderByAggregateInput = {
 }
 
 export type postsMinOrderByAggregateInput = {
-  id_post?: Prisma.SortOrder
+  id?: Prisma.SortOrder
   conteudo?: Prisma.SortOrder
   date_hora?: Prisma.SortOrder
   id_user?: Prisma.SortOrder
@@ -451,7 +451,7 @@ export type postsUpdateOneRequiredWithoutCurtidasNestedInput = {
 }
 
 export type postsCreateWithoutUsuarioInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   projeto: Prisma.projetosCreateNestedOneWithoutPostsInput
@@ -460,7 +460,7 @@ export type postsCreateWithoutUsuarioInput = {
 }
 
 export type postsUncheckedCreateWithoutUsuarioInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   id_proj: string
@@ -498,7 +498,7 @@ export type postsScalarWhereInput = {
   AND?: Prisma.postsScalarWhereInput | Prisma.postsScalarWhereInput[]
   OR?: Prisma.postsScalarWhereInput[]
   NOT?: Prisma.postsScalarWhereInput | Prisma.postsScalarWhereInput[]
-  id_post?: Prisma.StringFilter<"posts"> | string
+  id?: Prisma.StringFilter<"posts"> | string
   conteudo?: Prisma.StringFilter<"posts"> | string
   date_hora?: Prisma.DateTimeFilter<"posts"> | Date | string
   id_user?: Prisma.StringFilter<"posts"> | string
@@ -506,7 +506,7 @@ export type postsScalarWhereInput = {
 }
 
 export type postsCreateWithoutProjetoInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   usuario: Prisma.UserCreateNestedOneWithoutPostsInput
@@ -515,7 +515,7 @@ export type postsCreateWithoutProjetoInput = {
 }
 
 export type postsUncheckedCreateWithoutProjetoInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   id_user: string
@@ -550,7 +550,7 @@ export type postsUpdateManyWithWhereWithoutProjetoInput = {
 }
 
 export type postsCreateWithoutComentariosInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   usuario: Prisma.UserCreateNestedOneWithoutPostsInput
@@ -559,7 +559,7 @@ export type postsCreateWithoutComentariosInput = {
 }
 
 export type postsUncheckedCreateWithoutComentariosInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   id_user: string
@@ -584,7 +584,7 @@ export type postsUpdateToOneWithWhereWithoutComentariosInput = {
 }
 
 export type postsUpdateWithoutComentariosInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usuario?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
@@ -593,7 +593,7 @@ export type postsUpdateWithoutComentariosInput = {
 }
 
 export type postsUncheckedUpdateWithoutComentariosInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_user?: Prisma.StringFieldUpdateOperationsInput | string
@@ -602,7 +602,7 @@ export type postsUncheckedUpdateWithoutComentariosInput = {
 }
 
 export type postsCreateWithoutCurtidasInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   usuario: Prisma.UserCreateNestedOneWithoutPostsInput
@@ -611,7 +611,7 @@ export type postsCreateWithoutCurtidasInput = {
 }
 
 export type postsUncheckedCreateWithoutCurtidasInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   id_user: string
@@ -636,7 +636,7 @@ export type postsUpdateToOneWithWhereWithoutCurtidasInput = {
 }
 
 export type postsUpdateWithoutCurtidasInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usuario?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
@@ -645,7 +645,7 @@ export type postsUpdateWithoutCurtidasInput = {
 }
 
 export type postsUncheckedUpdateWithoutCurtidasInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_user?: Prisma.StringFieldUpdateOperationsInput | string
@@ -654,14 +654,14 @@ export type postsUncheckedUpdateWithoutCurtidasInput = {
 }
 
 export type postsCreateManyUsuarioInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   id_proj: string
 }
 
 export type postsUpdateWithoutUsuarioInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projeto?: Prisma.projetosUpdateOneRequiredWithoutPostsNestedInput
@@ -670,7 +670,7 @@ export type postsUpdateWithoutUsuarioInput = {
 }
 
 export type postsUncheckedUpdateWithoutUsuarioInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_proj?: Prisma.StringFieldUpdateOperationsInput | string
@@ -679,21 +679,21 @@ export type postsUncheckedUpdateWithoutUsuarioInput = {
 }
 
 export type postsUncheckedUpdateManyWithoutUsuarioInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_proj?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type postsCreateManyProjetoInput = {
-  id_post?: string
+  id?: string
   conteudo: string
   date_hora: Date | string
   id_user: string
 }
 
 export type postsUpdateWithoutProjetoInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   usuario?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput
@@ -702,7 +702,7 @@ export type postsUpdateWithoutProjetoInput = {
 }
 
 export type postsUncheckedUpdateWithoutProjetoInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_user?: Prisma.StringFieldUpdateOperationsInput | string
@@ -711,7 +711,7 @@ export type postsUncheckedUpdateWithoutProjetoInput = {
 }
 
 export type postsUncheckedUpdateManyWithoutProjetoInput = {
-  id_post?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   conteudo?: Prisma.StringFieldUpdateOperationsInput | string
   date_hora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_user?: Prisma.StringFieldUpdateOperationsInput | string
@@ -758,7 +758,7 @@ export type PostsCountOutputTypeCountCurtidasArgs<ExtArgs extends runtime.Types.
 
 
 export type postsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id_post?: boolean
+  id?: boolean
   conteudo?: boolean
   date_hora?: boolean
   id_user?: boolean
@@ -771,7 +771,7 @@ export type postsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 }, ExtArgs["result"]["posts"]>
 
 export type postsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id_post?: boolean
+  id?: boolean
   conteudo?: boolean
   date_hora?: boolean
   id_user?: boolean
@@ -781,7 +781,7 @@ export type postsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 }, ExtArgs["result"]["posts"]>
 
 export type postsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  id_post?: boolean
+  id?: boolean
   conteudo?: boolean
   date_hora?: boolean
   id_user?: boolean
@@ -791,14 +791,14 @@ export type postsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 }, ExtArgs["result"]["posts"]>
 
 export type postsSelectScalar = {
-  id_post?: boolean
+  id?: boolean
   conteudo?: boolean
   date_hora?: boolean
   id_user?: boolean
   id_proj?: boolean
 }
 
-export type postsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id_post" | "conteudo" | "date_hora" | "id_user" | "id_proj", ExtArgs["result"]["posts"]>
+export type postsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "conteudo" | "date_hora" | "id_user" | "id_proj", ExtArgs["result"]["posts"]>
 export type postsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   usuario?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   projeto?: boolean | Prisma.projetosDefaultArgs<ExtArgs>
@@ -824,7 +824,7 @@ export type $postsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     curtidas: Prisma.$curtidasPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id_post: string
+    id: string
     conteudo: string
     date_hora: Date
     id_user: string
@@ -912,8 +912,8 @@ export interface postsDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    * // Get first 10 Posts
    * const posts = await prisma.posts.findMany({ take: 10 })
    * 
-   * // Only select the `id_post`
-   * const postsWithId_postOnly = await prisma.posts.findMany({ select: { id_post: true } })
+   * // Only select the `id`
+   * const postsWithIdOnly = await prisma.posts.findMany({ select: { id: true } })
    * 
    */
   findMany<T extends postsFindManyArgs>(args?: Prisma.SelectSubset<T, postsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$postsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -957,9 +957,9 @@ export interface postsDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   ]
    * })
    * 
-   * // Create many Posts and only return the `id_post`
-   * const postsWithId_postOnly = await prisma.posts.createManyAndReturn({
-   *   select: { id_post: true },
+   * // Create many Posts and only return the `id`
+   * const postsWithIdOnly = await prisma.posts.createManyAndReturn({
+   *   select: { id: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -1048,9 +1048,9 @@ export interface postsDelegate<ExtArgs extends runtime.Types.Extensions.Internal
    *   ]
    * })
    * 
-   * // Update zero or more Posts and only return the `id_post`
-   * const postsWithId_postOnly = await prisma.posts.updateManyAndReturn({
-   *   select: { id_post: true },
+   * // Update zero or more Posts and only return the `id`
+   * const postsWithIdOnly = await prisma.posts.updateManyAndReturn({
+   *   select: { id: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -1256,7 +1256,7 @@ export interface Prisma__postsClient<T, Null = never, ExtArgs extends runtime.Ty
  * Fields of the posts model
  */
 export interface postsFieldRefs {
-  readonly id_post: Prisma.FieldRef<"posts", 'String'>
+  readonly id: Prisma.FieldRef<"posts", 'String'>
   readonly conteudo: Prisma.FieldRef<"posts", 'String'>
   readonly date_hora: Prisma.FieldRef<"posts", 'DateTime'>
   readonly id_user: Prisma.FieldRef<"posts", 'String'>
